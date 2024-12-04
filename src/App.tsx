@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import Header from './components/layout/Header';
 import Canvas from './components/3d/Canvas';
 import ToolPanel from './components/tools/ToolPanel';
+import PropertiesPanel from './components/properties/PropertiesPanel';
 
 const theme = createTheme({
   palette: {
@@ -24,6 +25,7 @@ function App() {
         <Header />
         <Canvas />
         <ToolPanel />
+        <PropertiesPanel />
       </div>
     </ThemeProvider>
   );

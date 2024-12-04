@@ -1,8 +1,13 @@
 import React from 'react';
 import { Paper, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
-import { Cube, Sphere, Cylinder } from '@mui/icons-material';
+import { useSceneStore } from '../../store/sceneStore';
+import CubeIcon from '@mui/icons-material/ViewInAr';
+import SphereIcon from '@mui/icons-material/RadioButtonUnchecked';
+import CylinderIcon from '@mui/icons-material/Crop169';
 
 const ToolPanel: React.FC = () => {
+  const addShape = useSceneStore((state) => state.addShape);
+
   return (
     <Paper 
       elevation={3}
@@ -15,23 +20,23 @@ const ToolPanel: React.FC = () => {
       }}
     >
       <List>
-        <ListItem button>
+        <ListItem button onClick={() => addShape('box')}>
           <ListItemIcon>
-            <Cube />
+            <CubeIcon />
           </ListItemIcon>
           <ListItemText primary="Cube" />
         </ListItem>
         <Divider />
-        <ListItem button>
+        <ListItem button onClick={() => addShape('sphere')}>
           <ListItemIcon>
-            <Sphere />
+            <SphereIcon />
           </ListItemIcon>
           <ListItemText primary="Sphere" />
         </ListItem>
         <Divider />
-        <ListItem button>
+        <ListItem button onClick={() => addShape('cylinder')}>
           <ListItemIcon>
-            <Cylinder />
+            <CylinderIcon />
           </ListItemIcon>
           <ListItemText primary="Cylinder" />
         </ListItem>
